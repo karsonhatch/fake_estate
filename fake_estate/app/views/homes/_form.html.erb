@@ -1,0 +1,32 @@
+<%= form_for [@seller, @home] do |f| %>
+
+	<%= f.label :bedroom %>
+	<%= f.text_field :bedroom %>
+
+
+	<%= f.label :bath %>
+	<%= f.text_field :bath %>
+
+
+	<%= f.label :sqft %>
+	<%= f.text_field :sqft %>
+
+
+	<%= f.label :style %>
+	<%= f.text_field :style %>
+
+
+	<%= f.label :story %>
+	<%= f.text_field :story %>
+
+
+	<%= f.label :sold %>
+	<%= f.text_field :sold %>
+
+
+	<%= f.label :price %>
+	<%= f.text_field :price %>
+
+	<%= f.submit %>
+
+<% end %>
