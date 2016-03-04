@@ -1,2 +1,13 @@
-<h1>Sellers</h1>
+<h1>Listings</h1>
+<hr />
+<% if @sellers.any? %>
+  <% @sellers.each do |seller| %>
+    <%= link_to seller.name, seller_path(seller) %> <%= link_to 'Edit', edit_seller_path(seller) %> <%= link_to 'Delete', seller_path(seller), method: :delete, data: {confirm: 'Are you sure you want to delete this listing?'} %>
+
+    <br />
+  <% end %>
+<% else %>
+ <h2> There are no sellers listed. Please add sellers. </h2>
+<% end %>
+   
 <%= link_to 'New Seller', new_seller_path %>
