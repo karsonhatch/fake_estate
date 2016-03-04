@@ -1,5 +1,5 @@
 class SellersController < ApplicationController
-	before_action :seller, except: [:index, :new, :create, :destroy]
+	before_action :seller, only: [:show, :edit]
 
   def index
   	@sellers = Seller.all

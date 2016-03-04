@@ -1,0 +1,13 @@
+<%= form_for @seller do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name, placeholder: 'Name' %>
+
+	<%= f.label :phone %>
+	<%= f.telephone_field :phone, placeholder: 'Phone' %>
+
+	<%= f.label :email %>
+	<%= f.email_field :email, placeholder: 'e-mail address'%>
+
+	<%= f.submit %>
+
+<% end %>
