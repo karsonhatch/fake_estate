@@ -1,22 +1,22 @@
 <%= form_for [@seller, @home] do |f| %>
 
 	<%= f.label :bedroom %>
-	<%= f.text_field :bedroom  %>
+	<%= f.select(:bedroom, (1..20), :prompt => 'choose one')%>
 <br />
 
 	<%= f.label :bath %>
-	<%= f.text_field :bath, placeholder: 'Baths', required: true %>
+	<%= f.select(:bath, [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5], :prompt => 'choose one') %>
 <br />
 
 	<%= f.label :sqft %>
-	<%= f.text_field :sqft, placeholder: 'Square Feet', required: true %>
+	<%= f.number_field(:sqft, min:0, max:10000) %>
 <br />
 
 	<%= f.label :style %>
-	<%= f.select(:style, ['Rambler', 'Split-level', 'Townhome', 'Condo'])%>
+	<%= f.select(:style, ['Rambler', 'Split-level', 'Townhome', 'Condo'], :prompt => 'choose one') %>
 <br />
 	<%= f.label :story %>
-	<%= f.text_field :story, placehoder: 'Story', required: true %>
+	<%= f.number_field(:story, min:1, max:5 )%>
 <br />
 
 	<%= f.label :sold %>
@@ -24,7 +24,7 @@
 
 <br />
 	<%= f.label :price %>
-	<%= f.text_field :price, placeholder: 'Pricing' %>
+	<%= f.number_field(:price, min:0, max:1000000) %>
 <br />
 	<%= f.submit %>
 
