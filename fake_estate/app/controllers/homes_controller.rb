@@ -16,7 +16,7 @@ class HomesController < ApplicationController
   def create
   	@home = Home.new(home_params)
   	if @home.save		
-  	redirect_to new_seller_homes_path
+  	redirect_to seller_path(@seller)
   	else 
   		render :new
   	end
