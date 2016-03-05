@@ -1,6 +1,10 @@
-<h1>Homes for: <%=@seller.name%></h1><%= link_to 'Edit Seller', edit_seller_path(@seller) %> <br /> 
+<h1>Homes for: <%=@seller.name%></h1>
+<button type='button'>
+<%= link_to 'Edit Seller', edit_seller_path(@seller) %> <br />
+</button>
+<button type='button'>
 <%= link_to 'Delete Seller', seller_path(@seller), method: :delete, data: {confirm: 'Are you sure you want to delete this listing?'} %>
-
+</button>
 <hr />
 
 <% if @seller.homes.any? %>
@@ -21,7 +25,10 @@
 <% else %>
     <h2>This person needs homes to sell</h2>
 <% end%>    
+<hr />
+<button type='button'>
 <%= link_to 'Add Home', new_seller_home_path(@seller) %>
+</button>
 
 
 
