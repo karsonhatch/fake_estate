@@ -20,7 +20,7 @@
 <br />
 
 	<%= f.label :sold %>
-	<%= f.text_field :sold, placeholder: 'Sold', required: true %>
+	<%= f.select(:sold, ['false', 'true']) %>
 
 <br />
 	<%= f.label :price %>

@@ -7,6 +7,7 @@ class HomesController < ApplicationController
   end
 
   def show
+   @address = @sellers.homes.address
   end
 
   def new
@@ -14,7 +15,7 @@ class HomesController < ApplicationController
   end
 
   def create
-  	@home = Home.new(home_params)
+  	@home = @seller.homes.new(home_params)
   	if @home.save		
   	redirect_to seller_path(@seller)
   	else 
@@ -28,7 +29,7 @@ class HomesController < ApplicationController
 
   def update
   	if @seller.home.update(home_params)
-  		redirect_to seller_home_path(@seller, @home)
+  		redirect_to seller_path(@seller)
   	else 
   		render :edit
   	end
@@ -36,16 +37,16 @@ class HomesController < ApplicationController
 
   def destroy
   	@home.destroy
-  	redirect_to seller_home
+  	redirect_to seller_path(@seller)
   end
 
   private
   def home_params
-  	params.require(:homes).permit(:bedroom, :bath, :sqft, :style, :story, :sold, :price)
+  	params.require(:home).permit(:bedroom, :bath, :sqft, :style, :story, :sold, :price)
   end
 
   def home
-   @seller.home.find(params[:id])
+   @seller.homes.find(params[:id])
   end
 
   def seller

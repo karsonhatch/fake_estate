@@ -2,6 +2,27 @@
 <%= link_to 'Delete Seller', seller_path(@seller), method: :delete, data: {confirm: 'Are you sure you want to delete this listing?'} %>
 
 <hr />
+
+<% if @seller.homes.any? %>
+  <% @seller.homes.each do |home| %>
+    <% if home.address %>
+      <div class = 'house'>
+        <%= link_to home.address.street, seller_home_path(@seller, home) %>
+      </div>  
+    <% else %>
+      <div class = 'house'>
+        <h3>New Home</h3>
+        <button type='button'>
+        <%= link_to 'add address', new_seller_home_address_path(@seller, home) %>
+        </button>
+      </div>  
+    <% end %>
+  <% end %>
+<% else %>
+    <h2>This person needs homes to sell</h2>
+<% end%>    
 <%= link_to 'Add Home', new_seller_home_path(@seller) %>
+
+
 
 
