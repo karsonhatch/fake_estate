@@ -11,7 +11,7 @@
   <% @seller.homes.each do |home| %>
     <% if home.address %>
       <div class = 'house'>
-        <%= link_to home.address.street, seller_home_path(@seller, home) %>
+        <h3><%= link_to home.address.street, seller_home_path(@seller, home) %></h3>
       </div>  
     <% else %>
       <div class = 'house'>

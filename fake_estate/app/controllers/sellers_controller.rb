@@ -6,8 +6,6 @@ class SellersController < ApplicationController
   end
 
   def show
-     @home = @seller.homes.find(params[:id])
-     @address = @home.address
   end
 
   def new
