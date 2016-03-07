@@ -1,11 +1,13 @@
 class SellersController < ApplicationController
-	before_action :seller, only: [:show, :edit, :destroy]
+	before_action :seller, only: [:show, :edit, :update, :destroy]
 
   def index
   	@sellers = Seller.all
   end
 
   def show
+     @home = @seller.homes.find(params[:id])
+     @address = @home.address
   end
 
   def new
@@ -13,7 +15,7 @@ class SellersController < ApplicationController
   end
 
   def create
-  	@seller = Seller.new(seller_params)
+  	@seller = Seller.create(seller_params)
   	if @seller.save
   	redirect_to sellers_path
 	else 

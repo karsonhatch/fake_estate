@@ -1,2 +1,19 @@
 <h1>New Address</h1>
-render(partial: 'form')
+
+<%= form_for [@home.seller, @home, @address] do |f| %>
+ <%= f.label :street %>
+  <%= f.text_field :street %>
+  
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+
+  <%= f.label :state %>
+  <%= f.text_field :state %>
+
+  <%= f.label :zip %>
+  <%= f.text_field :zip %>
+
+  
+
+  <%= f.submit %>
+<% end %>

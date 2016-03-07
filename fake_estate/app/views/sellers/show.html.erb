@@ -15,7 +15,7 @@
       </div>  
     <% else %>
       <div class = 'house'>
-        <h3>New Home</h3>
+        <h3><%= link_to 'New Home', seller_home_path(@seller, home) %></h3>
         <button type='button'>
         <%= link_to 'add address', new_seller_home_address_path(@seller, home) %>
         </button>

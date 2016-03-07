@@ -7,15 +7,15 @@ class HomesController < ApplicationController
   end
 
   def show
-   @address = @sellers.homes.address
   end
 
   def new
-  	@home = Home.new
+  	@home = Home.new 
+     
   end
 
   def create
-  	@home = @seller.homes.new(home_params)
+  	@home = @seller.homes.create(home_params)
   	if @home.save		
   	redirect_to seller_path(@seller)
   	else 
@@ -46,7 +46,7 @@ class HomesController < ApplicationController
   end
 
   def home
-   @seller.homes.find(params[:id])
+   @home = @seller.homes.find(params[:id])
   end
 
   def seller

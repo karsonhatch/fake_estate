@@ -1,2 +1,10 @@
-<h1>Homes#show</h1>
-<p>Find me in app/views/homes/show.html.erb</p>
+<% if @home.address %>
+  <h1><%= @home.address.street %></h1>
+<% else %>
+  <h1>This Home Needs An Address </h1>
+  <%= link_to 'add address', new_seller_home_address_path(@seller, @home)  %>
+<% end %>
+
+
+
+
