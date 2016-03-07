@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
-  get 'user/index'
 
-  get 'user/show'
+  root 'home#index'
+ get '/signup', to: 'users#new', as: 'signup'
+ get '/login', to: 'sessions#new', as: 'login'
+ get '/logout', to: 'sessions#destroy', as: 'logout'
 
-  get 'user/new'
 
-  get 'user/update'
+ post '/signup', to: 'users#create'
+ post '/login', to: 'sessions#create'
 
-root 'sellers#index'
+ resources :users
+ resources :home
+ resources :accounts
 
-delete '/address/:id', to: 'addresses#destroy', as: 'address'
+
+ delete '/address/:id', to: 'addresses#destroy', as: 'address'
 
   resources :sellers do 
     resources :homes do 
