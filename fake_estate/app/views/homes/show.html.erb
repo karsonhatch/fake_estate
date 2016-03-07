@@ -2,16 +2,20 @@
   <h1><%= @home.address.street %></h1>
 <% else %>
   <h1>This Home Needs An Address </h1>
-  <%= link_to 'add address', new_seller_home_address_path(@seller, @home)  %>
+  <%= link_to 'add address', new_seller_home_address_path(@seller, @home)  %> |
+  <% end %>
+
+<% if @home.address %>
+  <%= @home.address.city %> 
+  <%= @home.address.state %> 
+  <%= @home.address.zip %> 
 <% end %>
 
 
-<%= @home.address.city %> 
-<%= @home.address.state %> 
-<%= @home.address.zip %> 
 
-
-
-<%= link_to 'Back to Seller', seller_path(@seller) %>
+<%= link_to 'Back to Seller', seller_path(@seller) %> |
+<% if @home.address %>
+  <%= link_to 'Delete Address', address_path(@home.address), method: :delete %>
+<% end %>
 
 

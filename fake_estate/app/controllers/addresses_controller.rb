@@ -44,12 +44,11 @@ class AddressesController < ApplicationController
   end
 
   def destroy
-    @seller = Seller.find(params[:seller_id])
-    @home = @seller.homes.find(params[:home_id])
-    @address = @home.address.find(params[:id])
+    @address = Address.find(params[:id])
+    @home = @address.home
+    @seller = @home.seller
     @address.destroy
-    redirect_to seller_home_path(@seller, @home)
-    
+    redirect_to seller_home_path(@seller, @home) 
   end
   
   private
