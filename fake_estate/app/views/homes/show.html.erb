@@ -5,6 +5,13 @@
   <%= link_to 'add address', new_seller_home_address_path(@seller, @home)  %>
 <% end %>
 
+
+<%= @home.address.city %> 
+<%= @home.address.state %> 
+<%= @home.address.zip %> 
+
+
+
 <%= link_to 'Back to Seller', seller_path(@seller) %>
 
 

@@ -18,7 +18,8 @@ class AddressesController < ApplicationController
   
   def create
     @home = Home.find(params[:home_id])
-    @address = Address.create(address_params)
+    @address = Address.new(address_params)
+    @address.home_id = params[:home_id]
     if @address.save
       redirect_to seller_home_path(@home.seller, @home)
     else
@@ -53,7 +54,7 @@ class AddressesController < ApplicationController
   
   private
     def address_params
-      params.require(:address).permit(:street, :city, :state, :zip, :home_id)
+      params.require(:address).permit(:street, :city, :state, :zip)
     end
     
 
