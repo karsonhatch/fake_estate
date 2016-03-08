@@ -1,15 +1,23 @@
 <% if @home.address %>
   <h1><%= @home.address.street %></h1>
+  <br />
+    <%= @home.address.city %>,  
+    <%= @home.address.state %> 
+    <%= @home.address.zip %>
 <% else %>
   <h1>This Home Needs An Address </h1>
   <%= link_to 'add address', new_seller_home_address_path(@seller, @home)  %> |
   <% end %>
-
-<% if @home.address %>
-  <%= @home.address.city %> 
-  <%= @home.address.state %> 
-  <%= @home.address.zip %> 
-<% end %>
+  
+  <ul>
+    <li>Bedrooms: <%= @home.bedroom %></li>
+    <li>Bathrooms: <%= @home.bath %></li>
+    <li>Sq. Feet: <%= @home.sqft %></li>
+    <li>Style: <%= @home.style %></li>
+    <li>Stories: <%= @home.story %></li>
+    <li>Sold? <%= @home.sold %></li>
+    <li>Price: $<%= @home.price %></li>
+  </ul>
 
 
 
